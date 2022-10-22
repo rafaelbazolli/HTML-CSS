@@ -1,0 +1,18 @@
+    Snake é um array de objetos, contendo as posições de cada quadrado que será formado (x, y). 
+    Dentro da função createFood() está sendo gerado um número aleatório entre o mínimo e o máximo, e somando o valor mínimo para que
+não seja gerado nada fora da tela. Esse valor gerado é um número entre 25 - 500. Como cada unidade é 25, então é necessário 
+dividir o resultado por 25 para obter quantas partes de 25 esse valor representa, por isso ele é arredondado pelo Math.round().
+Ainda dentro dessa sentença, todo esse valor é multiplicado por 25, tendo assim a posição perfeita na tela sendo multipla de 25.
+    DrawFood() é a função que desenha um quadrado de tamanho unitSize, na posição gerada aleatoriamente pelo createFood(),
+e preenche ele com a cor desejada. 
+    StrokeRect é o contorno do retangulo. FillRect preenche o retangulo.
+    Dentro do MoveSnake o head é pra qual direção a cabeça está indo, positivo ou negativo no eixo X. 
+    Unshift adiciona elementos no inicio de um array, por isso é usado no MoveSnake().
+    Dentro do MoveSkake, se a coordenada x,y da cabeça for igual à do ponto, 
+    Dentro do chechGameOver(), Se a posição x<0, ela bateu na esquerda. Se o x >= tamanho da tela, ele bateu na direita. Se o y
+for menor que 0 ele bateu em cima, se o y for maior que o tamanho da tela ele bateu em baixo.
+    Dentro do chechGameOver(), para validar se bateu nela mesma, é feito um for que percorre todos os elementos da cobra, exceto a 
+cabeça, por isso ele começa em 1 e não em 0, não tem como a cabeça bater nela mesma. Dentro do for, se as posições X e Y da cabeça
+forem exatamente iguais ao X e Y do pedaço do corpo que está sendo comparado, para o jogo. 
+
+
