@@ -1,0 +1,95 @@
+/*  Position relative indica que todos os elementos de dentro dessa div(nesse caso) terão sua posição considerada à partir dele, 
+como se esse objeto fosse o tamanho máximo para onde os elementos podem se posicionar. 
+    Position absolute torna as configurações de posição do elemento absolutas com relação às outras, sendo assim se o objeto
+estivesse dentro de uma div, e colocar uma posição absoluta nele, faz com que ele considere a tela inteira como possiveis locais
+para se posicionar. 
+    Se tiver um objeto qualquer(uma div) com posição relative, e dentro dela vários objetos com posição absoluta, todos os objetos
+de dentro dessa div ficarão contidos dentro dela, ela se torna o 'limite' daonde eles podem se posicionar */
+
+/* Resetando os valores para a página toda */
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* Game board */
+/*  Overflow:hidden faz com que todo objeto que sair de dentro da posição da tela, fique escondido*/
+.game-board {
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid rgb(35, 160, 35);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+
+/* Cano */
+.pipe {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear;
+}
+
+
+.mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0;
+}
+
+.cloud {
+    position: absolute;
+    width: 550px;
+    animation: cloud-animation 15s infinite linear;
+}
+
+.jump {
+    animation: jump 700ms ease-out;
+}
+
+/* Animações */
+/*  pipe-animation vai simplesmente mudar os valores da posição do cano, para percorrer a tela inteira até 100% e sair do 
+quadro.
+    Definindo o right como negativo, faz com que o ponto inicial do cano seja fora do board, exatamente no tamanho da
+imagem do cano que é 80px 
+    O animation do keyframes permite que seja feito inicio/fim igual a animação do cano, mas também pode ser feito por %, como 
+é o caso da animação do pulo. Baseado na % atual da animação, ela tem comportamentos diferentes. 
+    Foi separado uma classe com nome Jump pois o JS vai adicionar essa classe à imagem do mario assim que o botão for 
+pressionado*/
+@keyframes pipe-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40%, 60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes cloud-animation {
+    from {
+        right: -550px;
+    }
+    
+    to {
+        right: 100%;
+    }
+}
